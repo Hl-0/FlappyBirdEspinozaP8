@@ -20,7 +20,7 @@ public class ColumnPoolScript : MonoBehaviour
     void Start()
     {
         columns = new GameObject[columnPoolSize];
-        for(int i = 0; i < columns.Length; i++)
+        for(int i = 0; i < columnPoolSize; i++)
         {
             columns[i] = (GameObject)Instantiate(columnPrefab, objectPoolPosition, Quaternion.identity);
         }
@@ -31,7 +31,7 @@ public class ColumnPoolScript : MonoBehaviour
     {
         timeSinceLastSpawned += Time.time;
 
-        if(GameControl.instance.gameOver == false && timeSinceLastSpawned >= spawnRate) 
+        if(GameControl.instance.gameOver == false && timeSinceLastSpawned > spawnRate) 
         {
             timeSinceLastSpawned = 0;
             float spawnYPosition = Random.Range(columnMin, columnMax);

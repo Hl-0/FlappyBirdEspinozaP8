@@ -12,7 +12,6 @@ public class GameControl : MonoBehaviour
     public bool gameOver = false;
     public TextMeshProUGUI ScoreUI;
     public float scrollSpeed = -1.5f;
-    public Text scoreText;
 
     private int score = 0;
     // Start is called before the first frame update
@@ -31,7 +30,7 @@ public class GameControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      if(gameOver ==true && Input.GetMouseButtonDown(0))
+      if(gameOver == true && Input.GetMouseButtonDown(0))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }  
@@ -44,7 +43,7 @@ public class GameControl : MonoBehaviour
             return;
         }
         score++;
-        scoreText.text = "Score:" + score.ToString();
+        ScoreUI.text = "Score:" + score.ToString();
     }
 
     public void BirdDied()
