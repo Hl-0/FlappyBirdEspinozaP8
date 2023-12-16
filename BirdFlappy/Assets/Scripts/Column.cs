@@ -7,20 +7,12 @@ public class Column : MonoBehaviour
 
     private void OnTiggerEnter2D(Collider2D other)
     {
-     if(other.GetComponent<Bird> () != null)
+        if (other.GetComponent <Bird> () != null)
         {
             GameControl.instance.BirdScored();
         }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+ 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

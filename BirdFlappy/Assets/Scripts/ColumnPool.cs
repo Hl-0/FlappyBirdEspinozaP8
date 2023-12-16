@@ -29,13 +29,14 @@ public class ColumnPoolScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeSinceLastSpawned += Time.time;
+        timeSinceLastSpawned += Time.deltaTime;
 
-        if(GameControl.instance.gameOver == false && timeSinceLastSpawned > spawnRate) 
+        if(GameControl.instance.gameOver == false && timeSinceLastSpawned >= spawnRate) 
         {
             timeSinceLastSpawned = 0;
             float spawnYPosition = Random.Range(columnMin, columnMax);
             columns[currentColumn].transform.position = new Vector2 (spawnXPosition , spawnYPosition);
+            currentColumn++;
             if(currentColumn >= columnPoolSize)
             {
                 currentColumn = 0;
